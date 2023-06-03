@@ -5,6 +5,8 @@ import 'package:teste/src/auth/sign_up_screen.dart';
 import 'package:teste/src/base/base_screen.dart';
 import 'package:teste/src/config/custom_colors.dart';
 
+import 'components/name_app.dart';
+
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
 
@@ -25,24 +27,9 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Nome do app
-                    Text.rich(
-                      TextSpan(
-                        style: const TextStyle(fontSize: 40),
-                        children: [
-                          const TextSpan(
-                            text: 'Green',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: 'grocer',
-                            style: TextStyle(
-                                color: CustomColors.customContrastColor,
-                                fontSize: 35),
-                          ),
-                        ],
-                      ),
+                    const NameApp(
+                      fontSize: 40,
+                      colorTitle: Colors.white,
                     ),
                     //Animação categorias do app
                     SizedBox(
