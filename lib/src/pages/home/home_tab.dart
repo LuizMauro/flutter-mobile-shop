@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:badges/badges.dart' as badges;
 
+import '../../config/app_data.dart';
 import '../auth/components/name_app.dart';
-import '../config/custom_colors.dart';
+import '../../config/custom_colors.dart';
 import 'components/category_tile.dart';
 
 class HomeTab extends StatefulWidget {
-  HomeTab({super.key});
+  const HomeTab({super.key});
 
   @override
   State<HomeTab> createState() => _HomeTabState();
 }
 
 class _HomeTabState extends State<HomeTab> {
-  List<String> categories = [
-    'Frutas',
-    'Legumes',
-    'Graõs',
-    'Verduras',
-    'Temperos',
-    'Cereais'
-  ];
-
   String selectedCategory = 'Frutas';
 
   @override

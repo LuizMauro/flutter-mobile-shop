@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:teste/src/home/home_tab.dart';
+import 'package:teste/src/pages/home/home_tab.dart';
 
 class BaseScreen extends StatefulWidget {
   const BaseScreen({super.key});
