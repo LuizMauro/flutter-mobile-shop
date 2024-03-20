@@ -3,6 +3,7 @@ import 'package:teste/src/models/cart_item_model.dart';
 import 'package:teste/src/models/order_model.dart';
 
 import '../../../services/utils_service.dart';
+import 'order_status_widget.dart';
 
 class OrderTile extends StatelessWidget {
   final OrderModel order;
@@ -21,6 +22,7 @@ class OrderTile extends StatelessWidget {
           dividerColor: Colors.transparent,
         ),
         child: ExpansionTile(
+          initiallyExpanded: true,
           title: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,25 +39,40 @@ class OrderTile extends StatelessWidget {
           ),
           childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
           children: [
-            SizedBox(
-              height: 150,
+            IntrinsicHeight(
               child: Row(
                 children: [
+                  //Lista de produtos
                   Expanded(
                     flex: 3,
-                    child: ListView(
-                      physics: const BouncingScrollPhysics(),
-                      children: order.items.map((orderItem) {
-                        return _OrderItemWidget(
-                          utilsServices: utilsServices,
-                          orderItem: orderItem,
-                        );
-                      }).toList(),
+                    child: SizedBox(
+                      height: 150,
+                      child: ListView(
+                        // physics: const BouncingScrollPhysics(),
+                        children: order.items.map((orderItem) {
+                          return _OrderItemWidget(
+                            utilsServices: utilsServices,
+                            orderItem: orderItem,
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
+                  //Divider
+                  VerticalDivider(
+                    color: Colors.grey.shade300,
+                    thickness: 2,
+                    width: 10,
+                  ),
+                  //Status Pedido
                   Expanded(
                     flex: 2,
-                    child: Container(),
+                    child: OrderStatusWidget(
+                      status: order.status,
+                      isOverdue: order.overdueDateTime.isBefore(
+                        DateTime.now(),
+                      ),
+                    ),
                   ),
                 ],
               ),
