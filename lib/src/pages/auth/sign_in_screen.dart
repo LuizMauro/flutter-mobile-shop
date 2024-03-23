@@ -27,7 +27,7 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Nome do app
-                    const NameApp(
+                    NameApp(
                       fontSize: 40,
                       colorTitle: Colors.white,
                     ),
