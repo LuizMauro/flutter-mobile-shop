@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:teste/src/pages/auth/sign_in_screen.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:teste/src/pages_routes/app_pages.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +12,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Greengrocer',
       theme: ThemeData(
         primarySwatch: Colors.green,
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
-      home: const SignInScreen(),
+      initialRoute: AppPages.pages[0].name,
+      getPages: AppPages.pages,
     );
   }
 }

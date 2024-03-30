@@ -1,9 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:teste/src/pages/commom_widgets/custom_text_field.dart';
-import 'package:teste/src/pages/auth/sign_up_screen.dart';
-import 'package:teste/src/pages/base/base_screen.dart';
 import 'package:teste/src/config/custom_colors.dart';
+import 'package:teste/src/pages_routes/app_pages.dart';
 
 import 'components/name_app.dart';
 
@@ -27,7 +27,7 @@ class SignInScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     //Nome do app
-                    NameApp(
+                    const NameApp(
                       fontSize: 40,
                       colorTitle: Colors.white,
                     ),
@@ -90,13 +90,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                              builder: (c) {
-                                return const BaseScreen();
-                              },
-                            ),
-                          );
+                          Get.offNamed(PagesRoutes.baseScreenRoute);
                         },
                         child: const Text(
                           'Entrar',
@@ -156,13 +150,7 @@ class SignInScreen extends StatelessWidget {
                           side: const BorderSide(width: 2, color: Colors.green),
                         ),
                         onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (c) {
-                                return SignUpScreen();
-                              },
-                            ),
-                          );
+                          Get.toNamed(PagesRoutes.signUpRoute);
                         },
                         child: const Text(
                           'Criar conta',
