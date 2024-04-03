@@ -7,7 +7,7 @@ abstract class AppPages {
   static final pages = <GetPage>[
     GetPage(
       name: PagesRoutes.signInRoute,
-      page: () => const SignInScreen(),
+      page: () => SignInScreen(),
     ),
     GetPage(
       name: PagesRoutes.signUpRoute,
