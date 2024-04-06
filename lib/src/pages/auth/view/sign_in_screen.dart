@@ -6,7 +6,7 @@ import 'package:teste/src/pages/commom_widgets/custom_text_field.dart';
 import 'package:teste/src/config/custom_colors.dart';
 import 'package:teste/src/pages_routes/app_pages.dart';
 
-import 'components/name_app.dart';
+import '../components/name_app.dart';
 
 class SignInScreen extends StatelessWidget {
   SignInScreen({super.key});
