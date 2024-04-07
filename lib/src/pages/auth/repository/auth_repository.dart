@@ -2,10 +2,13 @@ import 'package:teste/src/constants/endpoints.dart';
 import 'package:teste/src/models/user_model.dart';
 import 'package:teste/src/services/http_manager.dart';
 
+import '../result/auth_result.dart';
+import 'auth_errors.dart' as authErrors;
+
 class AuthRepository {
   final HttpManager _httpManager = HttpManager();
 
-  Future signin({
+  Future<AuthResult> signin({
     required String email,
     required String password,
   }) async {
@@ -20,10 +23,9 @@ class AuthRepository {
 
     if (result['result'] != null) {
       final user = UserModel.fromJson(result['result']);
-
-      return user;
+      return AuthResult.success(user);
     } else {
-      print('Signin não funcionou');
+      return AuthResult.error(authErrors.authErrorsString(result['error']));
     }
   }
 }
