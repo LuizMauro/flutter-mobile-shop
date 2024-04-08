@@ -4,6 +4,8 @@ import 'package:teste/src/pages/auth/controller/auth_controller.dart';
 import 'package:teste/src/pages_routes/app_pages.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   Get.put(AuthController());
 
   runApp(const MyApp());
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white.withAlpha(190),
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.pages[0].name,
+      initialRoute: AppPages.pages[1].name,
       getPages: AppPages.pages,
     );
   }
